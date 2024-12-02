@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ms. Barkhuizen Birthday</title>
+<style>
+       body {
+           text-align: center;
+           font-family: Arial, sans-serif;
+       }
+       .gift-box img {
+           width: 250px;
+           cursor: pointer;
+           margin-top: 50px;
+       }
+       #puzzle-container, #letter-container {
+           display: none;
+           margin-top: 20px;
+           padding: 20px;
+           border-radius: 10px;
+       }
+       .stars {
+           position: fixed;
+           top: 0;
+           left: 0;
+           width: 100%;
+           height: 100%;
+           pointer-events: none;
+           z-index: 10;
+       }
+       .star {
+           position: absolute;
+           width: 5px;
+           height: 5px;
+           background: white;
+           border-radius: 50%;
+           animation: twinkle 2s infinite ease-in-out;
+       }
+       @keyframes twinkle {
+           0%, 100% {
+               opacity: 0;
+           }
+           50% {
+               opacity: 1;
+           }
+       }
+       /* Flashy "Click Here" text */
+       .click-here {
+           font-size: 24px;
+           font-weight: bold;
+           color: red;
+           animation: flash 1s infinite;
+           margin-top: 20px;
+       }
+       @keyframes flash {
+           0% { opacity: 1; }
+           50% { opacity: 0; }
+           100% { opacity: 1; }
+       }
+</style>
+</head>
+<body id="main-body" style="background-color: white;">
+
+<div class="gift-box" onclick="openGift()">
+<img src="Birthday.jfif" alt="Gift Box" align= "center">
+
+</div>
+
+<div id="click-here-text" class="click-here">Click Here!</div>
+
+<div class="stars" id="stars">
+
+</div>
+
+<div id="puzzle-container" style="background-color: lightblue; color: white;">
+<h2>Fill in the missing letters to spell "Happy Birthday"</h2>
+<div id="puzzle">
+<span>H _ P P _ </span> <span>B _ R T H D _ Y</span>
+</div>
+<button onclick="checkPuzzle()">Submit</button>
+</div>
+
+<div id="letter-container" style="background-color: white;">
+<h2>Happy Birthday Ms. Barkhuizen!</h2>
+<p>Dear Ms.Barkhuizen,</p>
+<p>You are very good-spirited and have an ebullient, animated personality. 
+If you were a colour, you would be the colour yellow because of the way you light up the room. It is also fitting, as the sun lights up the earth,
+ and...would you look at that- guess whose favourite season is summer? Ms.Barkhuizen!
+These were the first characteristics and impression I had of you when I first met you. 
+These characteristics have proven true as the years progressed. 
+You can truly be described as a "breath of fresh air" because of the authenticity you display. 
+I can come across as quite an 'awkward person'; I am aware of this, and you are probably thinking right now that I may be hoodwinking you
+ because I am not exactly aware of what impression you thought I had of you
+ (not that it particularly holds weight) but I hope my words can convey a holistic message as clarification that cannot be described externallly-
+ this is coming from what one cannot see but feel.  </br> </br>
+ I have recognised that you listen to understand and are eager to ask questions to further understanding and apply knowledge and critical thinking skills. 
+ "This is a characteristic trait of a genius". That is the statement that crosses my mind when I see you interacting with those around you.
+ Rightfully this can parachute you to new heights in your upcoming future endeavours, and I am certain that you know this better than anyone-you are the best candidate to advocate for yourself.
+ You are the only one who truly knows the power that is stored in you that can be unlocked; all the answers to your greatest life questions are within you. With this new age you may
+ learn to show that enthusiasm and curious nature and critical thinking skills to unravel and unlock the capability that lies within you. </br> </br>
+ Relinquish all that does not align with yourself. Remember, it is okay to say no. Revisit every circumstance and every conversation with yourself-
+how you feel is most important, and it is only justified to check in with yourself before giving yourself away to other peoples opinions or expectations. </br> 
+Also side note: you are very punctual and consistently look polished. Great aspects about you.</br> </br>
+ Your constant dedication that has been implemented at the school has been greatly appreciated.
+ I see your wonderful work, especially when you were just starting out at the school. 
+ For example being able to conduct an extra mural activity such as Drama which was one of my fist encounters with your persevering characteristic. 
+ I admire how you cultivated work ethic into equipping your Drama students at the time with the confidence
+ to perform on stage at a formal performing arts event at the school hall. I appreciate how you worked with me to produce a fastidious monologue.
+ I am extremely grateful for the hike that we went on and enjoyed the beautiful scenery.
+ This year was my final year at school, and you have been an amazing mentor to guide someone on their last year. You have been very attentive and jovial.
+ I thought it was wonderful that you had conducted a play this year-"Purple Pers". That is a very fulfilling task and hard work. I love to see you working on tasks that bring you closer to self-actualisation and satisfaction with yourself.
+ I am very happy for you that you are now choosing a path that is aligned with your goals, 
+ and I hope you have had an amazing experience from the period that you have been at the school.
+ I am pretty sure you will be entering university with 10x Ninja turbo knowledge because of this experience. </br> </br>
+ 
+ Let this be the beginning of the greatest show known to man- <b> 'Ms.Barkhuizen onto elevated heights!' </b>  </br> </br>
+ I bid you a good farewell, filled with a prosperous journey ahead:)</br>
+ I hope you have the most amazing birthday filled with joy and laughter!</p> </br> 
+<p>Sincerely, Sibahle Mbokoma. </p>
+
+ 
+</br> <p> <img src= "The Lilian Domain logo.jpg" align="left" class="rounded-image" width="250" height="250"  </p>
+</br> </br> </br> <p align="left">
+ <i> <b> Enamoured by the exquisite. </i> </b>  </br> </br>
+<!--PLACEHOLDER for email--></br>
+ </p>
+</div>
+<script>
+       function openGift() {
+           // Display stars, hide "Click Here" text, and switch to puzzle
+           document.getElementById("stars").style.display = "block";
+           document.body.style.backgroundColor = "lightblue"; // Change to light blue
+           document.body.style.overflow = "hidden"; // Disable scrolling
+           createStars(100); // Create 100 stars
+           setTimeout(() => {
+               document.getElementById("puzzle-container").style.display = "block";
+               document.getElementById("click-here-text").style.display = "none"; // Hide flashy text
+           }, 1000); // Show puzzle after 1 second
+       }
+       function createStars(count) {
+           const starsContainer = document.getElementById("stars");
+           for (let i = 0; i < count; i++) {
+               const star = document.createElement("div");
+               star.classList.add("star");
+               star.style.left = Math.random() * 100 + "vw";
+               star.style.top = Math.random() * 100 + "vh";
+               star.style.animationDuration = Math.random() * 3 + 1 + "s";
+               starsContainer.appendChild(star);
+           }
+       }
+       function checkPuzzle() {
+           let puzzleAnswer = prompt("Fill in the missing letters for Happy Birthday:");
+           if (puzzleAnswer.toLowerCase() === "happy birthday") {
+               alert("Correct!");
+               document.getElementById("puzzle-container").style.display = "none";
+               document.getElementById("letter-container").style.display = "block";
+               document.body.style.backgroundColor = "white"; // Change to white again
+               document.getElementById("stars").style.display = "none"; // Hide stars
+               document.body.style.overflow = "auto"; // Re-enable scrolling
+           } else {
+               alert("Try again!");
+           }
+       }
+</script>
+</body>
+</html>
+
+
+
+
